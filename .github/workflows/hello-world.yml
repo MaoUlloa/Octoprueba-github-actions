@@ -1,0 +1,26 @@
+name: Hello World
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Run a one-line script
+        run: echo "Hello, World!"
+      
+      - name: Run a multi-line script
+        run: |
+          echo "Adding multiple commands"
+          echo "This is a GitHub Actions workflow"
+          echo "Current date and time:"
+          date
